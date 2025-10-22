@@ -1,0 +1,280 @@
+@import "../../lib/styles/colors";
+
+.navbar {
+  position: relative;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  background-color: $white-smooth;
+
+  .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .links {
+    display: flex;
+    gap: 2rem;
+
+    li {
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+      font-weight: 500;
+      &:hover {
+        color: $frank-blue;
+      }
+    }
+  }
+
+  .navGroup {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .mobileMenu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: $white-smooth;
+    color: $dark-smooth;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 0.35s ease;
+
+    li {
+      list-style: none;
+      margin-bottom: 1rem;
+      font-size: 1.9rem;
+
+      a {
+        color: $dark-smooth;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        display: block;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $frank-blue;
+          text-decoration: none;
+        }
+      }
+    }
+
+    &.open {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  .spacer {
+    height: 0;
+    transition: height 0.35s ease;
+  }
+  .spacer.open {
+    height: calc(7 * 2.9rem + 1rem);
+  }
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.mobileAuthContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  .mobileLogin {
+    color: $dark-smooth;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.6rem 0.9rem;
+    border: 1px solid $dark-smooth;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .mobileRegister {
+    color: $frank-blue;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.6rem 0.9rem;
+    background-color: $dark-smooth;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+}
+
+.burgerContainer {
+  margin-left: 1rem;
+}
+
+.authButtons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  .loginBtn {
+    color: $dark-smooth;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.6rem 1rem;
+    border: 1px solid $dark-smooth;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+
+    &:hover {
+      background-color: $dark-smooth;
+      color: $white-smooth;
+      border: 1px solid $dark-smooth;
+    }
+  }
+
+  .registerBtn {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    background-color: $frank-blue;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: darken($frank-blue, 10%);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// MOBILE STYLES
+@media (max-width: 991px) {
+  .authButtons {
+    display: none;
+  }
+
+  .mobileAuthContainer {
+    display: flex;
+  }
+
+  .navGroup {
+    .links {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar {
+    .links {
+      display: none;
+    }
+    .hamburgerContainer {
+      display: block;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar {
+    background-color: transparent;
+
+    .links {
+      li {
+        font-size: 2rem;
+      }
+    }
+
+    .navLink {
+      position: relative;
+      text-decoration: none;
+      font-weight: bold;
+      color: $dark-smooth;
+      padding: 0.3rem 0.6rem;
+      transition: all 0.5s ease;
+      z-index: 1;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        transition: all 0.5s ease;
+        z-index: -1;
+      }
+
+      &::before {
+        top: -0.2rem;
+        left: -0.2rem;
+        border-top: 2px solid transparent;
+        border-left: 2px solid transparent;
+      }
+
+      &::after {
+        bottom: -0.2rem;
+        right: -0.2rem;
+        border-bottom: 2px solid transparent;
+        border-right: 2px solid transparent;
+      }
+
+      &:hover {
+        color: $frank-blue;
+        &::before,
+        &::after {
+          width: calc(100% + 0.4rem);
+          height: calc(100% + 0.4rem);
+          border-color: $frank-blue;
+        }
+
+        &::before {
+          border-right: 2px solid transparent;
+          border-bottom: 2px solid transparent;
+        }
+
+        &::after {
+          border-left: 2px solid transparent;
+          border-top: 2px solid transparent;
+        }
+      }
+    }
+  }
+  .navGroup {
+    .links {
+      display: flex;
+      gap: 2rem;
+    }
+    .ctaButton {
+      display: inline-block;
+    }
+  }
+  .burgerContainer {
+    display: none;
+  }
+  .mobileMenu {
+    display: none;
+  }
+  .spacer {
+    display: none;
+  }
+
+  .mobileAuthContainer {
+    display: none;
+  }
+
+  .authButtons {
+    display: flex;
+  }
+}
