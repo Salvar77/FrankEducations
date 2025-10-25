@@ -2,11 +2,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import classes from "./SearchBar.module.scss";
 import CountryFlags from "../icons/CountryFlags";
+import { mockPrograms, Program } from "@/lib/data/mockPrograms";
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [searchResults, setSearchResults] = useState<Program[]>([]);
+  const [showResults, setShowResults] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const countries = [
@@ -37,7 +40,13 @@ const SearchBar = () => {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Search:", searchQuery, "Country:", selectedCountry);
+
+    const queryParams = new URLSearchParams();
+    if (searchQuery) queryParams.set("search", searchQuery);
+    if (selectedCountry) queryParams.set("country", selectedCountry);
+
+    // TYLKO przekierowanie - reszta kodu się nie wykona
+    window.location.href = `/programs?${queryParams.toString()}`;
   };
 
   const selectedCountryData = countries.find((c) => c.name === selectedCountry);
@@ -177,6 +186,178 @@ const SearchBar = () => {
             </svg>
           </button>
         </form>
+
+        {/* WYNIKI WYSZUKIWANIA - DODAJ TUTAJ */}
+        {showResults && (
+          <div className={classes.searchResults}>
+            <div className={classes.resultsHeader}>
+              <div className={classes.resultsInfo}>
+                <h3 className={classes.resultsTitle}>
+                  Found{" "}
+                  <span className={classes.resultsCount}>
+                    {searchResults.length}
+                  </span>{" "}
+                  programs
+                </h3>
+                <p className={classes.resultsSubtitle}>
+                  {searchQuery && `for "${searchQuery}"`}
+                  {selectedCountry && ` in ${selectedCountry}`}
+                </p>
+              </div>
+              <button
+                className={classes.closeResults}
+                onClick={() => setShowResults(false)}
+                aria-label="Close results"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M18 6L6 18M6 6L18 18"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            {showResults && (
+              <div className={classes.searchResults}>
+                <div className={classes.resultsHeader}>
+                  <div className={classes.resultsInfo}>
+                    <h3 className={classes.resultsTitle}>
+                      Found{" "}
+                      <span className={classes.resultsCount}>
+                        {searchResults.length}
+                      </span>{" "}
+                      programs
+                    </h3>
+                    <p className={classes.resultsSubtitle}>
+                      {searchQuery && `for "${searchQuery}"`}
+                      {selectedCountry && ` in ${selectedCountry}`}
+                    </p>
+                  </div>
+                  <button
+                    className={classes.closeResults}
+                    onClick={() => setShowResults(false)}
+                    aria-label="Close results"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M18 6L6 18M6 6L18 18"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                {/* TUTAJ JEST GŁÓWNA CZĘŚĆ WYNIKÓW - NIE POWTARZAJ POPRZEDNIEGO KODU */}
+                {searchResults.length > 0 ? (
+                  <div className={classes.programsGrid}>
+                    {searchResults.map((program) => (
+                      <div key={program.id} className={classes.programCard}>
+                        <div className={classes.programHeader}>
+                          <div className={classes.programMainInfo}>
+                            <h4 className={classes.programName}>
+                              {program.name}
+                            </h4>
+                            <span className={classes.university}>
+                              {program.university}
+                            </span>
+                          </div>
+                          <div className={classes.programBadges}>
+                            <span className={classes.degreeBadge}>
+                              {program.degree}
+                            </span>
+                            <span className={classes.countryBadge}>
+                              {program.country}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className={classes.programDetails}>
+                          <div className={classes.detailItem}>
+                            <span className={classes.detailLabel}>
+                              Duration:
+                            </span>
+                            <span className={classes.detailValue}>
+                              {program.duration}
+                            </span>
+                          </div>
+                          <div className={classes.detailItem}>
+                            <span className={classes.detailLabel}>
+                              Tuition:
+                            </span>
+                            <span className={classes.detailValue}>
+                              {program.tuition}
+                            </span>
+                          </div>
+                          <div className={classes.detailItem}>
+                            <span className={classes.detailLabel}>
+                              Language:
+                            </span>
+                            <span className={classes.detailValue}>
+                              {program.language}
+                            </span>
+                          </div>
+                          <div className={classes.detailItem}>
+                            <span className={classes.detailLabel}>Intake:</span>
+                            <span className={classes.detailValue}>
+                              {program.intake}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className={classes.programActions}>
+                          <div className={classes.feeInfo}>
+                            <span className={classes.applicationFee}>
+                              Application: {program.applicationFee}
+                            </span>
+                          </div>
+                          <button className={classes.applyButton}>
+                            Apply Now
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                            >
+                              <path
+                                d="M5 12H19M19 12L12 5M19 12L12 19"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className={classes.noResults}>
+                    <div className={classes.noResultsIcon}>🔍</div>
+                    <h4>No programs found</h4>
+                    <p>
+                      Try adjusting your search criteria or browse all programs
+                    </p>
+                    <button
+                      className={classes.browseAllButton}
+                      onClick={() => {
+                        setSearchQuery("");
+                        setSelectedCountry("");
+                        setSearchResults(mockPrograms);
+                      }}
+                    >
+                      Browse All Programs
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );

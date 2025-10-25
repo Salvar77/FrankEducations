@@ -355,3 +355,267 @@
     padding: 0.4rem 1.2rem;
   }
 }
+
+.searchResults {
+  margin-top: 2rem;
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.resultsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.resultsInfo {
+  flex: 1;
+}
+
+.resultsTitle {
+  color: #1a365d;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.resultsCount {
+  color: $frank-blue;
+}
+
+.resultsSubtitle {
+  color: #666;
+  margin: 0;
+}
+
+.closeResults {
+  background: #f8f9fa;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #666;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #e9ecef;
+    color: #333;
+  }
+}
+
+.programsGrid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.programCard {
+  background: #fafbfc;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border-color: $frank-blue;
+  }
+}
+
+.programHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.programMainInfo {
+  flex: 1;
+}
+
+.programName {
+  color: #1a365d;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.university {
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.programBadges {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.degreeBadge,
+.countryBadge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.degreeBadge {
+  background: rgba($frank-blue, 0.1);
+  color: $frank-blue;
+  border: 1px solid rgba($frank-blue, 0.2);
+}
+
+.countryBadge {
+  background: rgba(#10b981, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(#10b981, 0.2);
+}
+
+.programDetails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.detailItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.detailLabel {
+  color: #666;
+  font-weight: 500;
+}
+
+.detailValue {
+  color: #1a365d;
+  font-weight: 600;
+}
+
+.programActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.feeInfo {
+  flex: 1;
+}
+
+.applicationFee {
+  color: #666;
+  font-weight: 500;
+}
+
+.applyButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: $frank-blue;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: darken($frank-blue, 10%);
+    transform: translateX(2px);
+  }
+}
+
+.noResults {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.noResultsIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.noResults h4 {
+  color: #1a365d;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+}
+
+.noResults p {
+  color: #666;
+  margin: 0 0 1.5rem 0;
+}
+
+.browseAllButton {
+  background: transparent;
+  color: $frank-blue;
+  border: 2px solid $frank-blue;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $frank-blue;
+    color: white;
+  }
+}
+
+// Responsywność
+@media (max-width: 768px) {
+  .searchResults {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .programHeader {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .programBadges {
+    align-self: flex-start;
+  }
+
+  .programDetails {
+    grid-template-columns: 1fr;
+  }
+
+  .programActions {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .applyButton {
+    justify-content: center;
+  }
+}
