@@ -99,8 +99,6 @@ const ContactForm = () => {
       newErrors.interestedDestination = "Study destination is required";
     if (!formData.preferredMethod)
       newErrors.preferredMethod = "Preferred method is required";
-    if (!formData.agreeToTerms)
-      newErrors.agreeToTerms = "You must agree to terms and privacy policy";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
