@@ -110,6 +110,49 @@ const CountryFlags = {
       <rect x="6" y="4" width="4" height="4" fill="#FFC400" />
     </svg>
   ),
+  // NOWE KRAJE - DODANE
+  Japan: () => (
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+      <rect width="16" height="12" fill="white" />
+      <circle cx="8" cy="6" r="3" fill="#BC002D" />
+    </svg>
+  ),
+  CzechRepublic: () => (
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+      <rect width="16" height="12" fill="white" />
+      <path d="M0 0L8 6L0 12V0Z" fill="#11457E" />
+      <path d="M0 0L16 0L8 6L0 6V0Z" fill="#D7141A" />
+    </svg>
+  ),
+  Hungary: () => (
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+      <rect width="16" height="4" fill="#CD2A3E" />
+      <rect y="4" width="16" height="4" fill="white" />
+      <rect y="8" width="16" height="4" fill="#436F4D" />
+    </svg>
+  ),
+  Albania: () => (
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+      <rect width="16" height="12" fill="#E41E20" />
+      <path
+        d="M4 2L6 4L4 6L6 8L4 10L6 12H10L12 10L10 8L12 6L10 4L12 2L10 0H6L4 2Z"
+        fill="black"
+      />
+      <path
+        d="M5 1L7 3L5 5L7 7L5 9L7 11H9L11 9L9 7L11 5L9 3L11 1L9 0H7L5 1Z"
+        fill="#E41E20"
+      />
+      <circle cx="8" cy="6" r="2" fill="black" />
+      <circle cx="8" cy="6" r="1.5" fill="#E41E20" />
+    </svg>
+  ),
+  Bulgaria: () => (
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+      <rect width="16" height="4" fill="white" />
+      <rect y="4" width="16" height="4" fill="#00966E" />
+      <rect y="8" width="16" height="4" fill="#D62612" />
+    </svg>
+  ),
 };
 
 export default CountryFlags;

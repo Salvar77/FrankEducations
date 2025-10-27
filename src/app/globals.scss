@@ -18,4 +18,28 @@ body {
   font-family: var(--font-arimo), sans-serif;
   min-height: 100vh;
   min-height: 100dvh;
+  background: linear-gradient(
+    45deg,
+    white 0%,
+    white 48%,
+    lighten($white-smooth, 2%) 52%,
+    $frank-blue 60%,
+    darken($frank-blue, 20%) 70%,
+    $dark-smooth 80%,
+    mix($frank-blue, $dark-smooth, 40%) 90%,
+    $white-smooth 100%
+  );
+  background-size: 400% 400%;
 }
+
+// @keyframes gradientMove {
+//   0% {
+//     background-position: 0% 0%;
+//   }
+//   50% {
+//     background-position: 100% 100%;
+//   }
+//   100% {
+//     background-position: 0% 0%;
+//   }
+// }

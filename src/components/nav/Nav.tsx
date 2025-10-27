@@ -6,18 +6,16 @@ import BurgerMenu from "./BurgerMenu";
 import classes from "./Nav.module.scss";
 import { usePathname } from "next/navigation";
 
-interface NavProps {
-  isOpen: boolean;
-  toggleNav: () => void;
-}
-
-export default function Nav({ isOpen, toggleNav }: NavProps) {
+export default function Nav() {
   const pathname = usePathname();
   const [isDesktop, setIsDesktop] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleNav = () => {
+    setIsOpen(!isOpen);
+  };
 
   const items = [
-    { href: "/", label: "Home" },
-    { href: "/programs", label: "Programs" },
     { href: "/language-courses", label: "Language Courses" },
     { href: "/aviation", label: "Aviation" },
     { href: "/medical-studies", label: "Medical Studies" },
@@ -35,7 +33,7 @@ export default function Nav({ isOpen, toggleNav }: NavProps) {
     onResize();
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
-  }, [isOpen, toggleNav]);
+  }, [isOpen]);
 
   return (
     <nav className={`${classes.navbar}${solidNav ? ` ${classes.solid}` : ""}`}>

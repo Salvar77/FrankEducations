@@ -128,7 +128,11 @@ const ProgramSearch: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <Banners />
+        <div className={styles.banners}>
+          {" "}
+          <Banners />{" "}
+        </div>
+
         <h1 className={styles.title}>
           {showResults
             ? `${sortedResults.length} programs found for "${
