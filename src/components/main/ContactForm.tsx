@@ -151,8 +151,7 @@ const ContactForm = () => {
         <div className={classes.container}>
           <div className={classes.header}>
             <h2 className={classes.title}>
-              <span className={classes.span}>Frank Educations</span> Can Help
-              You
+              <span className={classes.span}>Frank Education</span> Can Help You
             </h2>
             <p className={classes.subtitle}>
               Enter your details and one of our expert counselors will contact
@@ -373,7 +372,7 @@ const ContactForm = () => {
                   disabled={isLoading}
                 />
                 <span className={classes.termsText}>
-                  I agree to Frank Educations{" "}
+                  I agree to Frank Education{" "}
                   <a href="/terms" className={classes.link}>
                     terms
                   </a>{" "}
@@ -419,7 +418,7 @@ const ContactForm = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <h2 className={classes.title}>
-            <span className={classes.span}>Frank Educations</span> Can Help You
+            <span className={classes.span}>Frank Education</span> Can Help You
           </h2>
           <p className={classes.subtitle}>
             Enter your details and one of our expert counselors will contact you
@@ -748,7 +747,7 @@ const ContactForm = () => {
                 disabled={isLoading}
               />
               <span className={classes.termsText}>
-                I agree to Frank Educations{" "}
+                I agree to Frank Education{" "}
                 <a href="/terms" className={classes.link}>
                   terms
                 </a>{" "}

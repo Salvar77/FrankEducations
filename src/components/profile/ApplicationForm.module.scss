@@ -1,0 +1,132 @@
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 32px 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #009fe3;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.inputGroup label {
+  font-weight: 500;
+  color: #222;
+}
+
+.inputGroup input,
+.inputGroup select,
+.inputGroup textarea {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #f9f9f9;
+  transition: border-color 0.2s;
+}
+
+.inputGroup input[type="file"] {
+  padding: 4px 0;
+  background: none;
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus,
+.inputGroup textarea:focus {
+  border-color: #009fe3;
+  outline: none;
+}
+
+.error {
+  border-color: #e00;
+  background: #fff0f0;
+}
+
+.errorText {
+  color: #e00;
+  font-size: 0.95em;
+  margin-top: 2px;
+}
+
+.eduSection {
+  background: #f6fafd;
+  border-radius: 8px;
+  padding: 16px 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 159, 227, 0.06);
+}
+
+.eduSection h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #009fe3;
+  margin-bottom: 8px;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 24px;
+  margin-top: 4px;
+}
+
+.radioGroup label {
+  font-weight: 400;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.submitButton {
+  background: #009fe3;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 12px;
+}
+
+.submitButton:disabled {
+  background: #b3e2fa;
+  cursor: not-allowed;
+}
+
+.successBox {
+  max-width: 500px;
+  margin: 48px auto;
+  background: #e6f7ff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  color: #009fe3;
+  box-shadow: 0 4px 32px rgba(0, 159, 227, 0.07);
+}
+
+.successBox h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.successBox p {
+  font-size: 1.1rem;
+}

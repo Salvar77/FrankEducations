@@ -20,7 +20,7 @@ const Hero = () => {
 
         <div className={classes.textOverlay}>
           <h1 className={classes.title}>
-            Study Abroad with <span>Frank Educations</span>
+            Study Abroad with <span>Frank Education</span>
           </h1>
           <p className={classes.subtitle}>
             Your gateway to international education in Poland, USA, UK and more
